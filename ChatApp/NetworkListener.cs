@@ -46,7 +46,7 @@ namespace ChatApp
             clientSocket.Close();
         }
 
-        private static string GetIPv4Address()
+        public static string GetIPv4Address()
         {
             IPHostEntry host;
             host = Dns.GetHostEntry(Dns.GetHostName());

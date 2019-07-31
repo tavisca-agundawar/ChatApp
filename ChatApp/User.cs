@@ -1,4 +1,7 @@
-﻿namespace ChatApp
+﻿using System.Net.Sockets;
+using System.Text;
+
+namespace ChatApp
 {
     public class User
     {
@@ -11,6 +14,26 @@
             userName = ExtractUserName();
         }
 
+        public static User GetUserDetails()
+        {
+            System.Console.WriteLine("Enter User Address: ");
+            string inputAddress = System.Console.ReadLine();
+            return new User(inputAddress);
+        }
+
+        public static User GetPeerDetails(Socket socket)
+        {
+            byte[] receivedEncodedUserAdress = new byte[1024];
+            int numByte = socket.Receive(receivedEncodedUserAdress);
+            string receivedUserAddress = Encoding.ASCII.GetString(receivedEncodedUserAdress, 0, numByte);
+            return new User(receivedUserAddress);
+        }
+
+        public static void SendUserDetails(Socket socket, string userAsdress)
+        {
+            byte[] encodedUserAddress = Encoding.ASCII.GetBytes(userAsdress);
+            socket.Send(encodedUserAddress);
+        }
         private string ExtractUserName()
         {
             //user address must be of form
