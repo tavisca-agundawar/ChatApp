@@ -1,0 +1,10 @@
+C:\Users\agundawar\source\repos\ChatApp\ChatApplicationLauncher\bin\Debug\ChatApplicationLauncher.exe.config
+C:\Users\agundawar\source\repos\ChatApp\ChatApplicationLauncher\bin\Debug\ChatApplicationLauncher.exe
+C:\Users\agundawar\source\repos\ChatApp\ChatApplicationLauncher\bin\Debug\ChatApplicationLauncher.pdb
+C:\Users\agundawar\source\repos\ChatApp\ChatApplicationLauncher\bin\Debug\ChatApp.dll
+C:\Users\agundawar\source\repos\ChatApp\ChatApplicationLauncher\bin\Debug\ChatApp.pdb
+C:\Users\agundawar\source\repos\ChatApp\ChatApplicationLauncher\obj\Debug\ChatApplicationLauncher.csprojAssemblyReference.cache
+C:\Users\agundawar\source\repos\ChatApp\ChatApplicationLauncher\obj\Debug\ChatApplicationLauncher.csproj.CoreCompileInputs.cache
+C:\Users\agundawar\source\repos\ChatApp\ChatApplicationLauncher\obj\Debug\ChatApplicationLauncher.csproj.CopyComplete
+C:\Users\agundawar\source\repos\ChatApp\ChatApplicationLauncher\obj\Debug\ChatApplicationLauncher.exe
+C:\Users\agundawar\source\repos\ChatApp\ChatApplicationLauncher\obj\Debug\ChatApplicationLauncher.pdb
