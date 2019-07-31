@@ -22,11 +22,13 @@ namespace ChatApp
             char choice = Convert.ToChar(Console.Read());
             if ( choice == 'y' || choice == 'Y')
             {
-                Console.Clear();
+                //Console.Clear();
+                string peerAddress;
                 Console.WriteLine("Enter peer address to connect:");
-                string peerAddress = Console.ReadLine();
+                peerAddress = Console.ReadLine();
 
                 NetworkClient networkClient = new NetworkClient();
+
 
                 networkClient.Connect(ExtractAddress(peerAddress));
             }
