@@ -49,6 +49,8 @@ namespace Test_ChatApp
                 }
             }
 
+            //ipaddress = NetworkListener.GetIPv4Address();
+
             address = ipaddress + ":" + "11111";
 
             networkListener = new NetworkListener();
@@ -59,6 +61,9 @@ namespace Test_ChatApp
             actualSocket = networkClient.Connect(address);
 
             worker.Join();
+
+            if (worker.IsAlive)
+                Thread.Sleep(1000);
 
             //Assert
             networkClient._ipaddress.Should().Be(ipaddress);
