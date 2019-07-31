@@ -7,27 +7,36 @@ namespace ChatApp
     public class NetworkListener
     {
         public Socket clientSocket;
-        public void StartListening()
+        //public int portNumber;
+        public void StartListening(int portNumber)
         {
-            IPAddress ipAddress = IPAddress.Parse(GetIPv4Address());
-
-            Socket listener = new Socket(ipAddress.AddressFamily,
-                         SocketType.Stream, ProtocolType.Tcp);
-
-            IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 11111);
 
             try
             {
+                IPAddress ipAddress = IPAddress.Parse(GetIPv4Address());
+
+                Socket listener = new Socket(ipAddress.AddressFamily,
+                             SocketType.Stream, ProtocolType.Tcp);
+
+                IPEndPoint localEndPoint = new IPEndPoint(ipAddress, portNumber); //11111);
+
+           
                 listener.Bind(localEndPoint);
 
                 listener.Listen(10);
 
-                Console.WriteLine("Waiting for connection ... ");
+                Display.StatusMessage($"Listening for connections on port number {portNumber}.") ;
 
                 clientSocket = listener.Accept();
 
-                NewConnectionHandlerArgs newConnectionEventData = new NewConnectionHandlerArgs(clientSocket);
-                OnNewConnection(newConnectionEventData);
+                Conversation newConversation = new Conversation();
+
+                Display.StatusMessage("Connection aquired. Starting conversation.");
+
+                newConversation.StartConversationByListener(clientSocket, MainProgram.user);
+
+                //NewConnectionHandlerArgs newConnectionEventData = new NewConnectionHandlerArgs(clientSocket);
+                //OnNewConnection(newConnectionEventData);
             }
             
             catch(Exception e)
@@ -42,6 +51,7 @@ namespace ChatApp
 
         public void StopListening()
         {
+            Display.StatusMessage("Stopping Listner.");
             clientSocket.Shutdown(SocketShutdown.Both);
             clientSocket.Close();
         }

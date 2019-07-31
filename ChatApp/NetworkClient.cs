@@ -22,6 +22,8 @@ namespace ChatApp
             Socket socket = new Socket(ipAddress.AddressFamily,
                          SocketType.Stream, ProtocolType.Tcp);
 
+            Display.StatusMessage("Attempting Connection.");
+
             socket.Connect(localEndPoint);
 
             return socket;
